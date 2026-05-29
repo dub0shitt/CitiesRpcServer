@@ -1,29 +1,17 @@
-var builder = WebApplication.CreateBuilder(args);
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-builder.WebHost.UseUrls(
-    $"http://0.0.0.0:{Environment.GetEnvironmentVariable("PORT") ?? "8080"}");
+WORKDIR /src
 
-// Add services to the container.
+COPY . .
 
-builder.Services.AddControllers();
-builder.Services.AddSingleton<
-    CitiesRpcServer.Services.GameService>();
-builder.Services.AddSingleton<
-    CitiesRpcServer.Services.LobbyService>();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+RUN dotnet restore CitiesRpcServer.csproj
 
-var app = builder.Build();
+RUN dotnet publish CitiesRpcServer.csproj -c Release -o /app/publish
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 
-app.UseAuthorization();
+WORKDIR /app
 
-app.MapControllers();
+COPY --from=build /app/publish .
 
-app.Run();
+ENTRYPOINT ["dotnet", "CitiesRpcServer.dll"]
