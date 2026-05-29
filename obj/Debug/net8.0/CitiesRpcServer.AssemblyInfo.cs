@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CitiesRpcServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c260826478f8f1a8c6f43f2c2c19d576f69a1f1e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CitiesRpcServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CitiesRpcServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
