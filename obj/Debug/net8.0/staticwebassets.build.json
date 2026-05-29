@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "QzOkBi8fJmhxDfXCanFHktJ2Mpy8dCKbGBt+OBcyRuI=",
+  "Source": "CitiesRpcServer",
+  "BasePath": "_content/CitiesRpcServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
